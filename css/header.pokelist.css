@@ -1,0 +1,78 @@
+
+body {
+    background-color: #DC0A2D;
+    font-size: 16px;
+    display: grid;                  
+    justify-content: center;    /* For centrering på header */
+}
+
+header {
+    margin: 0 auto;
+    display: grid;
+    /* grid-template-columns: repeat(2, auto); */
+    grid-template-columns: 24px auto;
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+
+    margin-top: 1em;
+    width: 100%;
+    max-width: 100%;
+    /* margin-left: 2em; */
+}
+
+
+.logoImg {
+    grid-column: 1;
+    grid-row: 1;
+    order: 0;
+
+    justify-self: start;
+}
+
+.logoTitle {
+    display: inline;
+    order: 1;
+    /* grid-column: 2; */
+    grid-row: 1;
+    color: #fff;
+    justify-self: start;
+    margin-left: 0.5em;
+}
+
+
+
+.searchContainer {
+    grid-row: 2;
+    grid-column: span 2;
+    width: 100%;
+}
+
+.searchBar {
+    margin-right: 1.5em;
+    width: 17.5em;
+    height: 32px;
+    border-radius: 25px;
+    border: none;
+    box-shadow: inset 0px 1px 2px 1px rgba(0, 0, 0, 0.25);
+}
+
+.searchBar::placeholder {
+position: relative;
+right: -15px;
+}
+
+.searchButton {
+    /* grid-column: 2; */
+
+    background-color: #fff;
+    color: #DC0A2D;
+    font-size: 16px;
+
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: inset 0px 1px 2px 1px rgba(0, 0, 0, 0.25);
+    /*inset -4px -4px 8px rgba(255, 255, 255, 0.7);*/
+
+}
