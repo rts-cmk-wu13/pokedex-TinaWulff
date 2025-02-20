@@ -27,8 +27,25 @@ logoImg.alt = "logo";
 let logoTitle = document.createElement("h1");    //headline created
 logoTitle.innerHTML = "Pokédex";
 
+let searchContainer = document.createElement("div");            //appendes til header
+searchContainer.classList.add("search-container");
+
+let searchIcon = document.createElement("i");                   // FONTAWSOME icon lup / search
+searchIcon.classList.add("fa-solid,fa-magnifying-glass");       //appendes til div searchcontainer
+
+let searchBar = document.createElement("input");                //appendes til div searchcontainer
+searchBar.type = "text";
+searchBar.id = "search";
+searchBar.placeholder = "Search";
+
+let searchButton = document.createElement("button");            //appendes til div searchcontainer
+searchButton.classList.add("searchButton");
+searchButton.innerHTML = "#";
 
 //APPENDS
+searchContainer.append(searchIcon,searchBar, searchButton);
+header.append(searchContainer);
+
 header.append(logoImg, logoTitle);
 docBody.append(header);
 
