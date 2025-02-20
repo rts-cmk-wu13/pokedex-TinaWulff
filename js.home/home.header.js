@@ -11,9 +11,9 @@ fetch("https://pokeapi.co/api/v2/pokemon", {
         console.log(data)
     })
 
-    .catch((error) => {
-        console.error("Der opstod en fejl:", error);
-    });
+    // .catch((error) => {
+    //     console.error("Der opstod en fejl:", error);
+    // });
 
 let docBody = document.querySelector("body");
 
