@@ -13,29 +13,42 @@ function getIdFromPokemon(pokemonUrl) {
 const artworkUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork"
 
 */
-
+//ovenstående ligge i seperat fil
 
 // her begynder selve komponentet
 
+let sectionElm = document.createElement("section");
+sectionElm.classList.add("pokedex_section")
 let mainElm = document.createElement("main");
 
-let sectionElm = document.createElement("section");
 
+// Funktion til at hente Pokémon-data
+fetch("https://pokeapi.co/api/v2/pokemon?limit=10", {
+    headers: {
+        "Accept": "application/json"
+    }
+})
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data); // Debugging
 
-// fetch("/data/pokemon.json")
-//     .then(function(response) {
-//         return response.json()
-//     }).then(
-//         function(data) {
-            sectionElm.innerHTML =  data.map(pokemon => `
-                <article>
+        // Generer HTML baseret på data
+        sectionElm.innerHTML = data.results.map((pokemon) => {
+            let id = getIdFromPokemon(pokemon.url);      // Bruger funktionen til at hente ID
+            return `
+                <article class="poke_card">
+                    <h3>#${id}</h3>
+                    <div class="card-inside-shadow"></div>
+                    <img src="${artworkUrl}/${id}.png" alt="${pokemon.name}">
                     <h2>${pokemon.name}</h2>
-                    <img src="${artworkUrl}/${getIdFromPokemon(pokemon.url)}.png" alt="${pokemon.name}">
                 </article>
-            `).join("")
+            `;
+        }).join("");
 
-    //     }
-    // )
+        mainElm.append(sectionElm);
+        docBody.append(mainElm);            //docBody er deklareret i header-filen
+    })
+    .catch((error) => {
+        console.error("Der opstod en fejl:", error);
+    });
 
-mainElm.append(sectionElm);
-docBody.append(mainElm);

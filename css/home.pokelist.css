@@ -1,0 +1,56 @@
+
+.pokedex_section {
+background-color: rgb(255, 255, 255);
+width: 100%;
+border-radius: 15px;
+
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+justify-items: center;
+justify-self: center;
+gap: 0.5em;
+padding: 2em 0.8em;
+}
+
+
+
+article.poke_card {
+    width: 100%;
+    max-width: 100%;
+    max-height: max-content;
+    border-radius: 15px;
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    flex-direction: column;
+}
+.card-inside-shadow {
+background-color: #EFEFEF;
+z-index: 2;
+
+height: 40%;
+}
+
+/* shadow color: #EFEFEF
+under billedet, ovenpå card'et.. */
+
+.poke_card img {
+    max-width: 100%;
+    width: 70%;
+    align-self: center;
+    }
+
+.poke_card h3 {
+    font-size: 8px;
+    color: #666666;
+    text-align: right;
+    font-weight: 400;
+    margin: 1em 1em 0 0;
+}
+
+.poke_card h2 {
+font-size: 10px;
+font-weight: 400;
+text-align: center;
+margin-bottom: 1em;
+}
