@@ -20,7 +20,7 @@ let searchContainer = document.createElement("div");            //appendes til h
 searchContainer.classList.add("searchContainer");
 
 let searchIcon = document.createElement("i");                   // FONTAWSOME icon lup / search
-searchIcon.classList.add("fa-solid,fa-magnifying-glass");       //appendes til div searchcontainer
+searchIcon.classList.add("fa-solid","fa-magnifying-glass");       //appendes til div searchcontainer
 
 let searchBar = document.createElement("input");                //appendes til div searchcontainer
 searchBar.classList.add("searchBar");
