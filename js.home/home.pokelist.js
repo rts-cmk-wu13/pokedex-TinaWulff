@@ -23,7 +23,7 @@ let mainElm = document.createElement("main");
 
 
 // Funktion til at hente Pokémon-data
-fetch("https://pokeapi.co/api/v2/pokemon?limit=10", {
+fetch("https://pokeapi.co/api/v2/pokemon?limit=20", {
     headers: {
         "Accept": "application/json"
     }
@@ -34,14 +34,16 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=10", {
 
         // Generer HTML baseret på data
         sectionElm.innerHTML = data.results.map((pokemon) => {
-            let id = getIdFromPokemon(pokemon.url);      // Bruger funktionen til at hente ID
+            const id = getIdFromPokemon(pokemon.url);      // Bruger funktionen til at hente ID
             return `
+                <a href="details.pokemon.html?id=${id}">   
                 <article class="poke_card">
                     <h3>#${id}</h3>
                     <div class="card-inside-shadow"></div>
                     <img src="${artworkUrl}/${id}.png" alt="${pokemon.name}">
                     <h2>${pokemon.name}</h2>
                 </article>
+                </a>
             `;
         }).join("");
 

@@ -49,8 +49,8 @@ header {
 }
 
 .searchBar {
-    margin-right: 1.5em;
-    width: 17.5em;
+    margin-right: 1em;
+    width: 85%;
     height: 32px;
     border-radius: 25px;
     border: none;
