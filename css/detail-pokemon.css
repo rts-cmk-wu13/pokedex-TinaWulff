@@ -6,13 +6,14 @@
     justify-self: center;
     /* margin-top: 2em; */
     position: relative;
-    top: 70px;
+    top: 28%/*55px;*/
 }
 
 .card-section {
     width: 100%;
     max-width: 100%;
     background-color: green;
+    padding-bottom: 1em;
 }
 
 /* HEADER */
@@ -82,9 +83,6 @@ article {
     border-radius: 25px;
     font-size: 10px;
 }
-.content {
-
-}
 
 h3 {
     margin: 1em 0;
@@ -95,13 +93,17 @@ h3 {
 .about-container {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(2,auto);
     justify-items: center;
     margin-top: 1em;
     margin-bottom: 1em;
+    column-gap: 2px solid gray;
 }
 
+.divider-line {
+    background-color: #E0E0E0;
+}
 
 .about-container_divider {
     display: grid;
@@ -144,8 +146,30 @@ h4 {
 
 .baseStats {
     display: grid;
-    grid-template-columns: 1fr 2px 1fr 4fr;
+    grid-template-columns: 1fr 2px 1fr 8fr;
+    justify-self: center;
+    margin: 0 1em;
+    padding-bottom: 1em;
     
+}
+
+progress {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 15px;
+    height: 10px;
+    align-self: center;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #74cb4848;
+    border-radius: 15px;
+}
+
+
+progress::-webkit-progress-value {
+background-color: #74cb48;
+border-radius: 15px;
 }
 
 .stats-visual__background {
@@ -153,7 +177,7 @@ h4 {
     width: 100%;
     grid-column: 4;
     grid-row: 1;
-grid-column: 4;
+    grid-column: 4;
 }
 
 .stats-visual__amount {
@@ -166,11 +190,16 @@ grid-column: 4;
 
 .stats-headline {
     grid-column: 1;
+    margin-right: 0.5em;
 }
 
+.stats-amount {
+    margin-left: 1em;
+    margin-right: 1em;
+}
 
 .stats-divider {
-    background-color: gray;
+    background-color: #E0E0E0;
     grid-column: 2;
     /* grid-row: 1 / -1; Strækker sig over alle rækker */
 }

@@ -9,6 +9,14 @@ const mainElmDetail = document.createElement("main");
 const sectionDetail = document.createElement("section");
 sectionDetail.classList.add("card-section");
 
+let pokeDescription = fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
+.then(response => response.json())
+.then((data) => {
+    console.log(data)
+})
+
+
+
 
 fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
     headers: {
@@ -34,7 +42,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
            
 
             <article>
-            <div class="content">
+        
             
             <div class="types">
             <p class="type1">${data.types[0].type.name}</p>
@@ -51,12 +59,14 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
             </div>
             <p class="about-type">weight</p>
            
+           
 
                <div class="about-container_divider">
             <img class="meassure" src="img/straighten.png" alt="meassure icon">
              <p class="about-data">${data.height} m</p>
              </div>
              <p class="about-type">Height</p>
+            
 
             ${abilityNamesHTML} 
             <p class="about-type">Moves</p>
@@ -64,8 +74,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
             </div>
 
             </ul>
-            <p class="Poke-description">Lorem ipsum dolor sit amet natus quibusdam, doloribus velit quod dignissimos hic quisquam cumque. Magni, explicabo!
-            </p>
+            <p class="Poke-description">${pokeDescription.data.flavor_text_entries}</p>
 
             <h4>Base Stats</h4>
             <div class="baseStats">
@@ -78,7 +87,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
                 `).join("")}
             
             </div>
-            </div>
+           
 
             </article>
         
