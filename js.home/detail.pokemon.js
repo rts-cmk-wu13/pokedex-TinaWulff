@@ -5,38 +5,42 @@ console.log(params);
 let id = params.get("id")
 console.log(id);
 
+
 const mainElmDetail = document.createElement("main");
 const sectionDetail = document.createElement("section");
 sectionDetail.classList.add("card-section");
 
-let pokeDescription = fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
-.then(response => response.json())
-.then((data) => {
-    console.log(data)
-})
 
 
-
-
-fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
-    headers: {
-        "Accept": "application/json"
-    }
-})
+fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
     .then(response => response.json())
-    .then((data) => {
-        console.log(data)
+    .then((pokeDescriptionData) => {
+        // Hent beskrivelsen fra Pokémon-species data
+        const pokeDescription = pokeDescriptionData.flavor_text_entries
+            .find(entry => entry.language.name === "en");
 
-        const abilityNamesHTML = data.abilities
-            .map(a => `<p class="about-data">${a.ability.name}</p>`)
-            .join('');
 
-        sectionDetail.innerHTML =
-            `
+        fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
+            headers: {
+                "Accept": "application/json"
+            }
+        })
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data)
+
+                let formattedId = String(id).padStart(3, "0"); // Gør ID 3-cifret
+                
+                const abilityNamesHTML = data.abilities
+                    .map(a => `<p class="about-data">${a.ability.name}</p>`)
+                    .join('');
+
+                sectionDetail.innerHTML =
+                    `
            <div class= "header">
             <i class="fa-solid fa-arrow-left"></i>
             <h1>${data.name}</h1>
-            <p class="poke-id">#${id}</p>
+            <p class="poke-id">#${formattedId}</p>
             <img class="pokemon-img" src="${artworkUrl}/${id}.png" alt="${data.name}">
             </div>
            
@@ -61,7 +65,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
            
            
 
-               <div class="about-container_divider">
+            <div class="about-container_divider">
             <img class="meassure" src="img/straighten.png" alt="meassure icon">
              <p class="about-data">${data.height} m</p>
              </div>
@@ -73,8 +77,8 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
            
             </div>
 
-            </ul>
-            <p class="Poke-description">${pokeDescription.data.flavor_text_entries}</p>
+
+            <p class="Poke-description">${pokeDescription?.flavor_text || 'No description available'}</p>
 
             <h4>Base Stats</h4>
             <div class="baseStats">
@@ -90,15 +94,12 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
            
 
             </article>
-        
         `
 
 
 
+                mainElmDetail.append(sectionDetail);
+                document.querySelector("body").append(mainElmDetail);
 
-
-
-        mainElmDetail.append(sectionDetail);
-        document.querySelector("body").append(mainElmDetail);
-
-    });
+            });
+    })

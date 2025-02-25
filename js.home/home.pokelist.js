@@ -20,12 +20,20 @@ const artworkUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/spr
 let sectionElm = document.createElement("section");
 sectionElm.classList.add("pokedex_section")
 let mainElm = document.createElement("main");
+docBody.append(mainElm)
 let currentOffset = 0;
 
 const observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
         if(entry.isIntersecting) {
+            console.log("juhuuuu")
+
             currentOffset = currentOffset + 50
+            if (currentOffset > 1304) {
+                observer.unobserve(observedPokemon);
+            }
+    
+
             fetchPokemon(currentOffset);
         }
     })
@@ -48,10 +56,13 @@ fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=50`, {
         // Generer HTML baseret på data
         sectionElm.innerHTML += data.results.map((pokemon) => {
             const id = getIdFromPokemon(pokemon.url);      // Bruger funktionen til at hente ID
+            
+            let formattedId = String(id).padStart(3, "0"); // Gør ID 3-cifret
+
             return `
                 <a href="details.pokemon.html?id=${id}">   
                 <article class="poke_card">
-                    <h3>#${id}</h3>
+                    <h3>#${formattedId}</h3>
                     <div class="card-inside-shadow"></div>
                     <img src="${artworkUrl}/${id}.png" alt="${pokemon.name}">
                     <h2>${pokemon.name}</h2>
@@ -61,18 +72,13 @@ fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=50`, {
         }).join("");
 
         
-
-        mainElm.append(sectionElm);
-        docBody.append(mainElm);            //docBody er deklareret i header-filen
+        console.log(document.querySelector("main"));
+        //mainElm.append(sectionElm);
+        document.querySelector("main").append(sectionElm);
+        //docBody.append(mainElm);            //docBody er deklareret i header-filen
 
         let observedPokemon = sectionElm.querySelector("article:nth-last-child(5)");
-        if (observedPokemon) {
-            observer.observe(observedPokemon);
-            observer.unobserve(observedPokemon);
-        } else {
-            console.warn("Ingen Pokémon at observere.");
-        }
-
+      
         //console.log(observedPokemon);
         observer.observe(observedPokemon);
     })
