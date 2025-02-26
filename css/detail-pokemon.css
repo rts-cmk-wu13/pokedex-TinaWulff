@@ -1,5 +1,5 @@
 body {
-    background-color: green;
+    /* background-color: green; */
 }
 
 
@@ -96,25 +96,30 @@ article {
 .types {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 1em
 }
 
 .type1 {
-    background-color: green;
-    color: #fff;
+
+    color: #FFF;
     margin-top: 1em;
-    padding: 0.2em 0.7em;
+    padding: 0.4em 1em;
     border-radius: 25px;
     font-size: 10px;
+    font-weight: 600;
+    text-transform: capitalize;
 }
 
 .type2 {
-    background-color: magenta;
-    color: #fff;
+
+    color: #FFF;
     margin-top: 1em;
-    padding: 0.2em 0.7em;
+    padding: 0.4em 1em;
     border-radius: 25px;
     font-size: 10px;
+    font-weight: 600;
+    text-transform: capitalize;
 }
 
 h3 {
@@ -173,6 +178,7 @@ margin-right: -0.5em;
     font-size: 8px;
     margin-top: 1em;
     justify-self: center;
+    color: #666666;
 }
 
 .about-data {
@@ -209,23 +215,23 @@ rotate: 90deg;
     
 }
 
-progress {
+meter {
     width: 100%;
     background-color: #fff;
     border-radius: 15px;
-    height: 10px;
+    height: 15px;
     align-self: center;
 }
 
-progress::-webkit-progress-bar {
+meter::-webkit-meter-bar {
     background-color: #74cb4848;
     border-radius: 15px;
 }
 
 
-progress::-webkit-progress-value {
-background-color: #74cb48;
-border-radius: 15px;
+meter::-webkit-meter-optimum-value {
+    background-color: var(--meter-fill-color, #74cb48); /* Dynamisk farve */
+    border-radius: 15px;
 }
 
 .stats-visual__background {
@@ -236,13 +242,13 @@ border-radius: 15px;
     grid-column: 4;
 }
 
-.stats-visual__amount {
+/* .stats-visual__amount {
 width: 45%;
 background-color: green;
 z-index: 2;
 grid-row: 1;
 grid-column: 4;
-}
+} */
 
 .stats-headline {
     grid-column: 1;

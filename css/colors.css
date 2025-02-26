@@ -1,0 +1,49 @@
+/* ===============
+Color Styles
+=============== */
+ 
+/* Identity */
+ 
+:root {
+    --color-primary: #dc0A2d;
+ 
+/* Pokémon Type */
+
+    --color-bug: #A7B723;
+    --color-dark: #75574C;
+    --color-dragon: #7037FF;
+    --color-electric: #F9CF30;
+    --color-fairy: #E69EAC;
+    --color-fighting: #C12239;
+    --color-fire: #F57D31;
+    --color-flying: #A891EC;
+    --color-ghost: #70559B;
+    --color-normal: #AAA67F;
+    --color-grass: #74CB48;
+    --color-ground: #DEC16B;
+    --color-ice: #9AD6DF;
+    --color-poison: #A43E9E;
+    --color-psychic: #FB5584;
+    --color-rock: #B69E31;
+    --color-steel: #B7B9D0;
+    --color-water: #6493EB;
+    
+ 
+  /* Grayscale */
+ 
+
+    --grayscale-dark: #212121;
+    --grayscale-medium: #666666;
+    --grayscale-light: #E0E0E0;
+    --grayscale-background: #EFEFEF;
+    --grayscale-white: #FFFFFF;
+ 
+}
+ 
+ 
+ 
+/*  
+body { background-color: var(--blue); }
+ 
+h2 { border-bottom: 2px solid var(--blue); }
+   */

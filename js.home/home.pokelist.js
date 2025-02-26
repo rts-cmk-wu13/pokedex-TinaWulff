@@ -64,7 +64,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=50`, {
                 <article class="poke_card">
                     <h3>#${formattedId}</h3>
                     <div class="card-inside-shadow"></div>
-                    <img src="${artworkUrl}/${id}.png" alt="${pokemon.name}">
+                    <img loading="lazy" src="${artworkUrl}/${id}.png" alt="${pokemon.name}">
                     <h2>${pokemon.name}</h2>
                 </article>
                 </a>

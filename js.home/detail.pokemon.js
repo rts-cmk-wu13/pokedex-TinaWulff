@@ -10,9 +10,7 @@ const mainElmDetail = document.createElement("main");
 const sectionDetail = document.createElement("section");
 sectionDetail.classList.add("card-section");
 
-
-
-
+let container = sectionDetail
 
 fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
     .then(response => response.json())
@@ -36,6 +34,18 @@ fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
                 const abilityNamesHTML = data.abilities
                     .map(a => `<p class="about-data">${a.ability.name}</p>`)
                     .join('');
+            
+                 
+// COLORS:
+        let primaryType = data.types[0].type.name;
+        let typeColor = getComputedStyle(document.documentElement).getPropertyValue(`--color-${primaryType}`).trim();
+    
+        console.log("Type Color: ", typeColor)
+
+
+        //Baggrundsfarve
+            document.querySelector("body").style.backgroundColor = typeColor;
+
 
                 sectionDetail.innerHTML =
                     `
@@ -47,16 +57,10 @@ fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
                 
                     <img class="background-hero" src="img/pokeball.png" alt="pokeball background img">
                     <img class="pokemon-img" src="${artworkUrl}/${id}.png" alt="${data.name}">
-                
-                
             </div>
-
-            
-           
 
             <article>
         
-            
             <div class="types">
             <p class="type1">${data.types[0].type.name}</p>
             ${data.types[1]? `<p class="type2">${data.types[1].type.name}</p>` : ""}
@@ -71,7 +75,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
             <img class="weight" src="img/weight.png" alt="weight icon">
             <p class="about-data">${(data.weight / 10).toFixed(1).replace('.', ',')}kg</p>
             </div>
-            <p class="about-type">weight</p>
+            <p class="about-type">Weight</p>
             </div>
            
            <div class="column-line a"></div>
@@ -102,7 +106,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
                 <p class="stats-headline">${stat.stat.name == "attack" ? "ATK" : stat.stat.name == "defense" ? "DFS" : stat.stat.name == "special-attack" ? "SATK" : stat.stat.name == "special-defense" ? "SDEF" : stat.stat.name == "speed" ? "SPD" : stat.stat.name.toUpperCase()}</p>
             <div class="stats-divider"></div>
             <p class="stats-amount">0${stat.base_stat}</p>
-            <progress max="300" value="${stat.base_stat}"></progress>
+            <meter class="stat-meter" max="300" value="${stat.base_stat}"></meter>
 
                 `).join("")}
             
@@ -115,5 +119,43 @@ fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
                 mainElmDetail.append(sectionDetail);
                 document.querySelector("body").append(mainElmDetail);
 
+                // Efter HTML'en er tilføjet, kan vi begynde at ændre baggrundsfarven
+        let types = data.types.map(t => t.type.name); // Henter alle typer
+
+//COLORS
+      
+        // Sæt farve for type1 (første type)
+        let type1Color = getComputedStyle(document.documentElement).getPropertyValue(`--color-${types[0]}`).trim();
+        let typeElement1 = sectionDetail.querySelector(".type1");
+        if (typeElement1) {
+            typeElement1.style.backgroundColor = type1Color;
+        }
+
+        // Hvis der er en type2, sættes farven for type2
+        if (types[1]) {
+            let type2Color = getComputedStyle(document.documentElement).getPropertyValue(`--color-${types[1]}`).trim();
+            let typeElement2 = sectionDetail.querySelector(".type2");
+            if (typeElement2) {
+                typeElement2.style.backgroundColor = type2Color;
+            }
+        }
+
+        // ABOUT-HEADER
+        let aboutHeader = sectionDetail.querySelector("h3");
+        if (aboutHeader) aboutHeader.style.color = typeColor;
+        aboutHeader.style.Color = typeColor;
+
+        let statsHeader = sectionDetail.querySelector("h4");
+        if (statsHeader) statsHeader.style.color = typeColor;
+        statsHeader.style.Color = typeColor;
+
+          // Meter ændre farven på meter (stats)
+          let statMeters = sectionDetail.querySelectorAll("meter");
+          statMeters.forEach(meter => {
+              meter.style.setProperty("--meter-fill-color", typeColor);
+          });
+
             });
-    })
+    });
+
+   
