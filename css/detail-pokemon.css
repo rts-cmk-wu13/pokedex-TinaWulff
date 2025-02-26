@@ -33,12 +33,13 @@ grid-row: 1;
 margin-left: 2em;
 }
 
-.card-section i {
+.card-section a {
     font-size: 1.5em;
     margin-right: 0.5em;
     grid-column: 1;
     grid-row: 1;
     margin-left: 0.5em;
+    color: #fff;
     }
 
     .poke-id {
@@ -57,6 +58,7 @@ article {
     display: grid;
     justify-items: center;
     padding-top: 5em;
+    box-shadow: inset 0px 1px 3px 1px rgba(0, 0, 0, 0.25);
 
 }
 
@@ -90,16 +92,33 @@ h3 {
     color: green;
 }
 
+/* ABOUT CONTAINER */
+
 .about-container {
     display: grid;
     width: 100%;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(2,auto);
+    grid-template-columns: 1fr 2px 1fr 2px 1fr; /* Tilføjer smalle kolonner til linjerne */
+    grid-template-rows: repeat(2, auto);
     justify-items: center;
+    align-items: center;
     margin-top: 1em;
     margin-bottom: 1em;
-    column-gap: 2px solid gray;
 }
+
+.column-line {
+    background-color: #E0E0E0;
+    width: 100%;
+ height: 100%;
+
+}
+
+.a {
+    grid-column: 2;
+}
+.b {
+    grid-column: 4;
+}
+
 
 .divider-line {
     background-color: #E0E0E0;
@@ -109,11 +128,12 @@ h3 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-row: 1fr;
+    
 }
 
 .about-container_divider img {
 width: 1.5em;
-margin-right: 0em;
+margin-right: -0.5em;
 
 }
 
@@ -121,13 +141,15 @@ margin-right: 0em;
     grid-row: 3;
     font-size: 8px;
     margin-top: 1em;
+    justify-self: center;
 }
 
 .about-data {
     grid-column: 3;
-    font-size: 10px;
-    line-height: 10px;
+    font-size: 12px; /*figma siger 10px, men ser ikke rigtigt ud*/
+    line-height: 20px;
     align-self: center;
+    justify-self: center;
 }
 
 .Poke-description {
@@ -141,6 +163,9 @@ h4 {
     justify-self: center;
 }
 
+img.meassure {
+rotate: 90deg;
+}
 
 /* BASE STATS */
 

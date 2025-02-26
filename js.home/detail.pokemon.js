@@ -12,6 +12,8 @@ sectionDetail.classList.add("card-section");
 
 
 
+
+
 fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
     .then(response => response.json())
     .then((pokeDescriptionData) => {
@@ -38,7 +40,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
                 sectionDetail.innerHTML =
                     `
            <div class= "header">
-            <i class="fa-solid fa-arrow-left"></i>
+            <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
             <h1>${data.name}</h1>
             <p class="poke-id">#${formattedId}</p>
             <img class="pokemon-img" src="${artworkUrl}/${id}.png" alt="${data.name}">
@@ -50,31 +52,38 @@ fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
             
             <div class="types">
             <p class="type1">${data.types[0].type.name}</p>
-            <p class="type2">${data.types[1].type.name}</p>
+            ${data.types[1]? `<p class="type2">${data.types[1].type.name}</p>` : ""}
             </div>
     
             <h3>About</h3>
             
             <div class="about-container">
 
+            <div>
             <div class="about-container_divider">
             <img class="weight" src="img/weight.png" alt="weight icon">
-            <p class="about-data">${data.weight} kg</p>
+            <p class="about-data">${(data.weight / 10).toFixed(1).replace('.', ',')}kg</p>
             </div>
             <p class="about-type">weight</p>
+            </div>
            
-           
+           <div class="column-line a"></div>
 
+           <div>
             <div class="about-container_divider">
             <img class="meassure" src="img/straighten.png" alt="meassure icon">
-             <p class="about-data">${data.height} m</p>
+             <p class="about-data">${(data.height / 10).toFixed(1).replace('.', ',')} m</p>
              </div>
              <p class="about-type">Height</p>
+             </div>
             
+            <div class="column-line b"></div>
 
+            <div>
             ${abilityNamesHTML} 
             <p class="about-type">Moves</p>
-           
+           </div>
+
             </div>
 
 
@@ -95,8 +104,6 @@ fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
 
             </article>
         `
-
-
 
                 mainElmDetail.append(sectionDetail);
                 document.querySelector("body").append(mainElmDetail);

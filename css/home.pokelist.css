@@ -19,8 +19,8 @@ grid-template-columns: repeat(3, 1fr);
 
 justify-items: center;
 justify-self: center;
-gap: 2%;
-/* padding: 2em 0.8em; */
+gap: 1rem;
+padding: 2em 0.8em;
 min-height: 100vh;
 /* overflow: hidden; */
 margin-bottom: 2em;
@@ -29,7 +29,7 @@ margin-bottom: 2em;
 
 
 article.poke_card {
-    /* position: relative;  */
+    position: relative; 
     width: 100%;
     max-width: 100%;
     /* max-height: max-content; */
@@ -43,7 +43,7 @@ article.poke_card {
 
 }
 
-/* article .card-inside-shadow {
+article .card-inside-shadow {
 
 z-index: 0;
 width: 100%;
@@ -54,7 +54,7 @@ left: 0;
 background: #EFEFEF;
 border-radius: 10px;
 }
-*/
+
 
 /* shadow color: #EFEFEF
 under billedet, ovenpå card'et.. */

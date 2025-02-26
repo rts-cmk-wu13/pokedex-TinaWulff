@@ -77,7 +77,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=50`, {
         document.querySelector("main").append(sectionElm);
         //docBody.append(mainElm);            //docBody er deklareret i header-filen
 
-        let observedPokemon = sectionElm.querySelector("article:nth-last-child(5)");
+        let observedPokemon = sectionElm.querySelector("a:nth-last-child(5)");
       
         //console.log(observedPokemon);
         observer.observe(observedPokemon);
