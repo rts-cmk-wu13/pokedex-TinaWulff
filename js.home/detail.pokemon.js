@@ -40,11 +40,18 @@ fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
                 sectionDetail.innerHTML =
                     `
            <div class= "header">
-            <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
-            <h1>${data.name}</h1>
-            <p class="poke-id">#${formattedId}</p>
-            <img class="pokemon-img" src="${artworkUrl}/${id}.png" alt="${data.name}">
+                <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
+                <h1>${data.name}</h1>
+                <p class="poke-id">#${formattedId}</p>
+                
+                
+                    <img class="background-hero" src="img/pokeball.png" alt="pokeball background img">
+                    <img class="pokemon-img" src="${artworkUrl}/${id}.png" alt="${data.name}">
+                
+                
             </div>
+
+            
            
 
             <article>

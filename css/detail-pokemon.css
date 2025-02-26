@@ -1,3 +1,7 @@
+body {
+    background-color: green;
+}
+
 
 .pokemon-img {
     max-width: 100%;
@@ -12,39 +16,65 @@
 .card-section {
     width: 100%;
     max-width: 100%;
-    background-color: green;
-    padding-bottom: 1em;
 }
 
 /* HEADER */
 
 .header {
-    padding-top: 1em;
+margin-top: 1.5em;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1.6fr ;
     align-items: center;
-
     color: #fff;
+}
+
+
+
+.background-hero {
+width: 100%;
+max-width: 100%;
+opacity: 0.1;
+order: 0;
+grid-column: 2;
+grid-row: 1/3;
+justify-self: end;
+align-self: start;
+margin-right: 0.8em;
+margin-top: -1em;
+}
+
+
+.pokemon-img {
+    grid-area: 1 / 1 / -1 / -1;
+    width: 60%;
+    max-width: 100%;
+    z-index: 2;
+    grid-row: 2;
+    justify-self: center;
+    position: relative;
+    top: 40px;
 }
 
 .header h1 {
 grid-column: 1;
 grid-row: 1;
-margin-left: 2em;
+margin-left: 3em;
+text-transform: capitalize;
 }
 
 .card-section a {
-    font-size: 1.5em;
-    margin-right: 0.5em;
+    font-size: 2em;
+    font-weight: lighter;
     grid-column: 1;
     grid-row: 1;
-    margin-left: 0.5em;
+    margin-left: 1em;
     color: #fff;
     }
 
     .poke-id {
         margin-left: auto;
         grid-column: 2;
+        grid-row: 1;
         margin-right: 1em;
     }
 
@@ -59,8 +89,9 @@ article {
     justify-items: center;
     padding-top: 5em;
     box-shadow: inset 0px 1px 3px 1px rgba(0, 0, 0, 0.25);
-
-}
+    position: relative;
+    top: -40px
+} 
 
 .types {
     display: flex;
