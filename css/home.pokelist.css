@@ -4,28 +4,22 @@
     text-decoration: none; /* Fjern standard link-styling */
 }
 
-
-
 .pokedex_section {
 background-color: rgb(255, 255, 255);
 width: 100%;
 max-width: 98%;
 border-radius: 15px;
-
-
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 /* grid-template-rows: auto; */
-
 justify-items: center;
 justify-self: center;
-gap: 1rem;
+gap: 0.5em;
 padding: 2em 0.8em;
 min-height: 100vh;
 /* overflow: hidden; */
 margin-bottom: 2em;
 }
-
 
 
 article.poke_card {
@@ -41,7 +35,6 @@ article.poke_card {
 }
 
 article .card-inside-shadow {
-
 z-index: 0;
 width: 100%;
 height: 40%;
