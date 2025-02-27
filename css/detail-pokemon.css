@@ -274,17 +274,15 @@ meter::-webkit-meter-bar {
 }
 
 
-/* meter::-webkit-meter-value {
-    border-radius: 15px;
-} */
-
-
-
 meter::-webkit-meter-optimum-value {
     background: rgb(39, 38, 38);
     background: var(--meter-optimum-value);
 
 }
+
+/* meter::-webkit-meter-value {
+    border-radius: 15px;
+} */
 
 .stats-visual__background {
     background-color: #74cb4836;
@@ -320,4 +318,23 @@ grid-column: 4;
 
 h4 {
     color: green;
+}
+
+@media screen and (min-width: 700px) {
+   
+    .card-section {
+        max-width: 700px;
+        justify-self: center;
+}
+
+.pokemon-img {
+    top: 60px;
+}
+
+article {
+    padding-top: 7em;
+    top: -80px;
+    padding-bottom: 3em;
+}
+
 }
