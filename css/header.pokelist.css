@@ -1,9 +1,9 @@
-
 body {
     background-color: #DC0A2D;
     font-size: 16px;
-    display: grid;                  
-    justify-content: center;    /* For centrering på header */
+    display: grid;
+    justify-content: center;
+    /* For centrering på header */
 }
 
 header {
@@ -46,14 +46,14 @@ header {
     grid-column: span 2;
     /* width: 99%;
     max-width: 90%; */
-    
+
 }
 
 .searchBar {
     margin-right: 0.5em;
     width: 85%;
     max-width: 90%;
-    
+
     /* width: 80%; */
 
     height: 2.5em;
@@ -63,8 +63,8 @@ header {
 }
 
 .searchBar::placeholder {
-position: relative;
-right: -40px;
+    position: relative;
+    right: -40px;
 }
 
 .searchButton {
@@ -93,3 +93,23 @@ right: -40px;
 
 }
 
+@media screen and (min-width: 1200px) {
+
+    .searchContainer {
+        max-width: 50%;
+    }
+
+    .fa-magnifying-glass {
+        position: relative;
+        right: -50px;
+        top: 3px;
+    }
+
+    .logoImg {
+        margin-left: 1em;
+    }
+
+    .logoTitle {
+        margin-left: 1em;
+    }
+}
