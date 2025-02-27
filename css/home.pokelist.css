@@ -15,7 +15,7 @@ grid-template-columns: repeat(3, 1fr);
 justify-items: center;
 justify-self: center;
 gap: 0.5em;
-padding: 2em 0.8em;
+padding: 2em 0.5em;
 min-height: 100vh;
 /* overflow: hidden; */
 margin-bottom: 2em;
