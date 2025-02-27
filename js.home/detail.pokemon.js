@@ -50,13 +50,16 @@ fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
                 sectionDetail.innerHTML =
                     `
            <div class= "header">
-                <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
+                <a class="back-to-list" href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
                 <h1>${data.name}</h1>
                 <p class="poke-id">#${formattedId}</p>
                 
                 
                     <img class="background-hero" src="img/pokeball.png" alt="pokeball background img">
+
+                    <a class="arrow-left" href="http://127.0.0.1:5500/details.pokemon.html?id=${id-1}"><i class="fa-solid fa-chevron-left"></i></a>
                     <img class="pokemon-img" src="${artworkUrl}/${id}.png" alt="${data.name}">
+                    <a class="arrow-right" href="http://127.0.0.1:5500/details.pokemon.html?id=${parseInt(id)+1}"><i class="fa-solid fa-chevron-right"></i></a>
             </div>
 
             <article>
@@ -152,7 +155,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
           // Meter ændre farven på meter (stats)
           let statMeters = sectionDetail.querySelectorAll("meter");
           statMeters.forEach(meter => {
-              meter.style.setProperty("--meter-fill-color", "#000000");
+              meter.style.setProperty("--meter-optimum-value", typeColor);
           });
 
             });
