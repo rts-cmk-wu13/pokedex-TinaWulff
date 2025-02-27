@@ -152,7 +152,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
           // Meter ændre farven på meter (stats)
           let statMeters = sectionDetail.querySelectorAll("meter");
           statMeters.forEach(meter => {
-              meter.style.setProperty("--meter-fill-color", typeColor);
+              meter.style.setProperty("--meter-fill-color", "#000000");
           });
 
             });
