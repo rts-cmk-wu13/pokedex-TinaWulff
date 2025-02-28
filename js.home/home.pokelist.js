@@ -49,7 +49,16 @@ fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=50`, {
         "Accept": "application/json"
     }
 })
-    .then((response) => response.json())
+    .then(response => {
+            console.log(response.ok);
+
+            if(!response.ok) {
+                throw new Error("Pokemon findes ikke!!!!")
+            }
+            return response.json()
+        })
+
+
     .then((data) => {
         console.log(data); // Debugging
 
@@ -81,9 +90,14 @@ fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=50`, {
       
         //console.log(observedPokemon);
         observer.observe(observedPokemon);
-    })
-    .catch((error) => {
-        console.error("Der opstod en fejl:", error);
+
+    }).catch((error) => {
+        console.error(error);
+
+        sectionElm.innerHTML = `
+        <h2>${error.message}<h2>
+            <p>Go back to the <a href="index.html">overview</a></p>
+        `
     });
 
 }

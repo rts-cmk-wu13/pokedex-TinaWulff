@@ -10,7 +10,8 @@ body {
     justify-self: center;
     /* margin-top: 2em; */
     position: relative;
-    top: 28%/*55px;*/
+    top: 28%
+        /*55px;*/
 }
 
 .card-section {
@@ -21,9 +22,9 @@ body {
 /* HEADER */
 
 .header {
-margin-top: 1.5em;
+    margin-top: 1.5em;
     display: grid;
-    grid-template-columns: 1fr 1.6fr ;
+    grid-template-columns: 1fr 1.6fr;
     align-items: center;
     color: #fff;
 }
@@ -31,16 +32,16 @@ margin-top: 1.5em;
 
 
 .background-hero {
-width: 100%;
-max-width: 100%;
-opacity: 0.1;
-order: 0;
-grid-column: 2;
-grid-row: 1/3;
-justify-self: end;
-align-self: start;
-margin-right: 0.8em;
-margin-top: -1em;
+    width: 100%;
+    max-width: 100%;
+    opacity: 0.1;
+    order: 0;
+    grid-column: 2;
+    grid-row: 1/3;
+    justify-self: end;
+    align-self: start;
+    margin-right: 0.8em;
+    margin-top: -1em;
 }
 
 
@@ -56,27 +57,67 @@ margin-top: -1em;
 }
 
 .header h1 {
-grid-column: 1;
-grid-row: 1;
-margin-left: 3em;
-text-transform: capitalize;
+    grid-column: 1;
+    grid-row: 1;
+    margin-left: 3em;
+    text-transform: capitalize;
 }
 
-.card-section a {
+.back-to-list {
     font-size: 2em;
     font-weight: lighter;
     grid-column: 1;
     grid-row: 1;
     margin-left: 1em;
     color: #fff;
+}
+
+.poke-id {
+    margin-left: auto;
+    grid-column: 2;
+    grid-row: 1;
+    margin-right: 1em;
+}
+
+
+
+.arrow-right {
+    grid-area: 2 / 2 / 3/ -1;
+    align-self: center;
+    justify-self: flex-end;
+    order: 3;
+    font-size: 1.5em;
+}
+
+    .fa-chevron-right {
+    color: #fff;
+    /* order: 3; */
+    font-size: 1.5em;
+    margin-right: 1em;
+    align-self: center;
+    z-index: 1;         /*skal være positioneret */
+    position: relative;
     }
 
-    .poke-id {
-        margin-left: auto;
-        grid-column: 2;
-        grid-row: 1;
-        margin-right: 1em;
+
+.arrow-left {
+    grid-area: 2 / 1 / 3/ -2;
+    font-size: 1.5em;
+    /* margin-left: 1em; */
+    align-self: center;
+    /* order: 3; */
+}
+
+    .fa-chevron-left {
+    /* order: 3; */
+    color: #fff;
+    font-size: 1.5em;
+    margin-left: 1em;
+    align-self: center;
+    position: relative;
+    z-index: 1;
     }
+
 
 /* ARTICLE */
 
@@ -91,7 +132,7 @@ article {
     box-shadow: inset 0px 1px 3px 1px rgba(0, 0, 0, 0.25);
     position: relative;
     top: -40px
-} 
+}
 
 .types {
     display: flex;
@@ -133,7 +174,8 @@ h3 {
 .about-container {
     display: grid;
     width: 100%;
-    grid-template-columns: 1fr 2px 1fr 2px 1fr; /* Tilføjer smalle kolonner til linjerne */
+    grid-template-columns: 1fr 2px 1fr 2px 1fr;
+    /* Tilføjer smalle kolonner til linjerne */
     grid-template-rows: repeat(2, auto);
     justify-items: center;
     align-items: center;
@@ -144,13 +186,14 @@ h3 {
 .column-line {
     background-color: #E0E0E0;
     width: 100%;
- height: 100%;
+    height: 100%;
 
 }
 
 .a {
     grid-column: 2;
 }
+
 .b {
     grid-column: 4;
 }
@@ -164,12 +207,12 @@ h3 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-row: 1fr;
-    
+
 }
 
 .about-container_divider img {
-width: 1.5em;
-margin-right: -0.5em;
+    width: 1.5em;
+    margin-right: -0.5em;
 
 }
 
@@ -183,15 +226,16 @@ margin-right: -0.5em;
 
 .about-data {
     grid-column: 3;
-    font-size: 12px; /*figma siger 10px, men ser ikke rigtigt ud*/
+    font-size: 12px;
+    /*figma siger 10px, men ser ikke rigtigt ud*/
     line-height: 20px;
     align-self: center;
     justify-self: center;
 }
 
 .Poke-description {
-margin: 1em;
-justify-self: center;
+    margin: 1em;
+    justify-self: center;
 }
 
 
@@ -201,7 +245,7 @@ h4 {
 }
 
 img.meassure {
-rotate: 90deg;
+    rotate: 90deg;
 }
 
 /* BASE STATS */
@@ -212,27 +256,33 @@ rotate: 90deg;
     justify-self: center;
     margin: 0 1em;
     padding-bottom: 1em;
-    
+
 }
 
 meter {
     width: 100%;
     background-color: #fff;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     height: 15px;
     align-self: center;
 }
 
 meter::-webkit-meter-bar {
-    background-color: #74cb4848;
+    background: grey;
+    background: rgb(from var(--meter-optimum-value) r g b / 20%);
     border-radius: 15px;
 }
 
 
 meter::-webkit-meter-optimum-value {
-    background-color: var(--meter-fill-color, #74cb48); /* Dynamisk farve */
-    border-radius: 15px;
+    background: rgb(39, 38, 38);
+    background: var(--meter-optimum-value);
+
 }
+
+/* meter::-webkit-meter-value {
+    border-radius: 15px;
+} */
 
 .stats-visual__background {
     background-color: #74cb4836;
@@ -268,4 +318,23 @@ grid-column: 4;
 
 h4 {
     color: green;
+}
+
+@media screen and (min-width: 700px) {
+   
+    .card-section {
+        max-width: 700px;
+        justify-self: center;
+}
+
+.pokemon-img {
+    top: 60px;
+}
+
+article {
+    padding-top: 7em;
+    top: -80px;
+    padding-bottom: 3em;
+}
+
 }
