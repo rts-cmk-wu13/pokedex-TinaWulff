@@ -44,17 +44,22 @@ header {
 .searchContainer {
     grid-row: 2;
     grid-column: span 2;
-    /* width: 99%;
-    max-width: 90%; */
-
+    width: 99%;
+    max-width: 90%;
 }
+
+form {
+max-width: 100%;
+width: 100%;
+}
+
 
 .searchBar {
     margin-right: 0.5em;
-    width: 85%;
-    max-width: 90%;
+    
+    max-width: 100%;
 
-    /* width: 80%; */
+    width: 70%;
 
     height: 2.5em;
     border-radius: 25px;
@@ -79,9 +84,8 @@ header {
     border-radius: 50%;
     border: none;
     box-shadow: inset 0px 1px 2px 1px rgba(0, 0, 0, 0.25);
-    margin-right: 0.5em;
+    margin-right: 0.3em;
     justify-self: end;
-
 }
 
 .fa-magnifying-glass {
